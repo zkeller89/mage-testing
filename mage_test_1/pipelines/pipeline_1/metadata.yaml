@@ -1,0 +1,57 @@
+blocks:
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks:
+  - fill_in_missing_values
+  - fill_in_missing_values
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: load_titanic
+  status: executed
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_titanic
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks:
+  - summarize_with_r
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: fill_in_missing_values
+  status: executed
+  type: transformer
+  upstream_blocks:
+  - load_titanic
+  uuid: fill_in_missing_values
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks:
+  - upload_to_gcs
+  executor_config: null
+  executor_type: local_python
+  language: r
+  name: summarize_with_r
+  status: executed
+  type: transformer
+  upstream_blocks:
+  - fill_in_missing_values
+  uuid: summarize_with_r
+- all_upstream_blocks_executed: true
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  language: python
+  name: upload_to_gcs
+  status: executed
+  type: data_exporter
+  upstream_blocks:
+  - summarize_with_r
+  uuid: upload_to_gcs
+data_integration: null
+name: pipeline_1
+type: python
+uuid: pipeline_1
+widgets: []

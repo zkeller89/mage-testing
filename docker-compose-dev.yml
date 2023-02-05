@@ -1,0 +1,16 @@
+services:
+  mage:
+    image: mageai/mageai:latest
+    stdin_open: true
+    tty: true
+    environment:
+      - GCS_BUCKET=${GCS_BUCKET}
+      - GCLOUD_PROJECT=${GCLOUD_PROJECT}
+      - GOOGLE_APPLICATION_CREDENTIALS=/tmp/keys/dev_auth.json
+    ports:
+      - "6789:6789"
+    volumes:
+      - .:/home/src
+      - ${GOOGLE_APPLICATION_CREDENTIALS}:/tmp/keys/dev_auth.json:ro
+    command: ["/app/run_app.sh", "mage", "start", "mage_test_1"]
+
