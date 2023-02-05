@@ -45,7 +45,7 @@ blocks:
   executor_type: local_python
   language: python
   name: upload_to_gcs
-  status: executed
+  status: updated
   type: data_exporter
   upstream_blocks:
   - summarize_with_r

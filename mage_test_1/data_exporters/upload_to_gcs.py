@@ -17,7 +17,7 @@ def export_data_to_google_cloud_storage(df: DataFrame, **kwargs) -> None:
     pt = pytz.timezone("America/Los_Angeles")
     now_pst = pytz.utc.localize(now).astimezone(pt)
 
-    object_key = f'test_file_{now_pst.strftime("%Y-%m-%d_%H%M")}.csv'
+    object_key = f'test_file_updated_{now_pst.strftime("%Y-%m-%d_%H%M")}.csv'
 
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
