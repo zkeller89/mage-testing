@@ -21,5 +21,5 @@ RUN python3 /app/install_other_dependencies.py --path ${USER_CODE_PATH}
 
 ENV PYTHONPATH="${PYTHONPATH}:/home/mage_code"
 
-CMD ["/bin/sh", "-c", "/app/run_app.sh", "mage", "start", "${PROJECT_NAME}"]
+CMD ["/bin/sh", "-c", "/app/run_app.sh"]
 
